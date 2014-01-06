@@ -1,0 +1,75 @@
+<html>
+<head>
+	<title>
+		Haim Shachor's Profile
+	</title>
+	<meta name="author" content="haimsh"/> 
+ 	<link rel="stylesheet" href="origstyle.css"/> 
+	<script src="calculator.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="calculatorAPI.js"></script>
+</head>
+<body>
+
+<form id="login" action="http://localhost:8080" method="post">
+	Username: <input type="textbox" id="username"/> 
+	Password: <input type="password" id="password"/> 
+	<input type="submit" method="post" class="send" value="send"/>
+</form>
+<hr/>
+<div id="calculator">
+<form>
+	<input type="textbox" id="calculatorDisplay" readonly/>
+	<input type="button" value="*" class="calculatorOperation" id ="mul"/><br>
+	<input type="textbox" id="calculatorInput"/>
+	<input type="button" value="+" class="calculatorOperation" id="add"/></br>
+	<input type="button" value="settings" id="calculatorSet"/>
+	<input type="button" value="clear" class="calculatorOperation" id="clear"/>
+</form>
+</div>
+<div id="profile">
+<h1> Haim, Shachor (06017275-6) </h1>
+<img src="haim2.jpg" alt="My picture" id="haim"/>
+<p> Welcome to my personal website... </p>
+<p> I'm student for second degree at CS at HUJI. I finished my B.Sc. degree at
+Computer Science (major degree) and Economics (minor degree) last year, and 
+right now beginning my second degree. </p>
+<p> I'm 32 years old, married to Ester, and father to Miryam(8), Avraham(5) and
+Yechiel(2m). I work as algorithms developer at Mobileye.</p>
+<p> My recommended websites: </p>
+<table>
+	<tr>
+		<th> Website </th>
+		<th> Why do I recommend this site? </th>
+	</tr>
+	<tr>
+		<td>
+		<a href="http://www.cs.huji.ac.il/~haimsh">My Lecture Notes Site</a></td>
+		<td>Well, the main reason is that I wrote most of the content of this 
+		site. In this site, you can find lecture notes for lot of courses taken
+		by myself during my first degree, particularly in Math and CS, but also
+		several courses in Economics.
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<a href="http://moodle.cs.huji.ac.il/cs12/course/view.php?name=internet">
+		Last Year Course Website</a></td>
+		<td>I really hope nobody won't need this site any more, but if the 
+		current year site will keep its update rate, some of the course 
+		materials can be found here. The big con is that the content has been 
+		changed since last year, so let's hope the current site will be updated
+		more frequently.</td>
+	</tr>
+	<tr>
+		<td><a href="http://http://stackoverflow.com/">Stack Overflow</td>
+		<td>In this site you can found answer to lot of programming question 
+		you may have. Actually, it helped me design this profile, especially
+		with the CSS style change on the link below.</td>
+	</tr>
+</table>
+<hr/>
+<p>The Bible is the most common stolen book in the world...</p>
+</div>
+</body>
+</html>

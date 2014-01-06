@@ -1,0 +1,15 @@
+var calc = new Calculator(); - when head is loading the javascript file.
+function startCalculator() {... } - when send button is pressed.
+function checkNum(event) { ... } - when key is pressed in calculator input textbox.
+function clearCalculator() { ... } - when clear key is pressed (in addition to calc[clear]() )
+function settings() { ... } - when settings key is pressed.
+function doOperation(event) { ... } - when +/*/clear key is pressed.
+function updateCalc(calc) {...} - is called by several event functions which change the calc value and so 
+need to update the display.
+function loadEventListeners() {...} - when page is loaded, set the events to switch the display.
+calculator["mul"]() - is called by doOperation() when the * button is clicked.
+function checkForm() is called by startCalculator when send button is pressed.
+
+Of course, I mean the calling of the functions, not their defining which is done during the
+head section load the js file (the Calculator function are created on call to new Calculator(), 
+during loading the js file too).

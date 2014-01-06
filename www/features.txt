@@ -1,0 +1,2 @@
+1. Objects structure is not strict and pre-defined.
+2. Functions can be created depend on the current scope.

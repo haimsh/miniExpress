@@ -1,0 +1,56 @@
+body {
+/*    font-family: arial, helvetica, sans-serif;
+    background-color: #ffc;
+    padding: 0;
+	*/
+	background-color: #39a;
+    color: white;
+    margin: 20px;
+    font-size: 20px;
+
+}
+
+p {
+    font: 14px/1.5; 
+	font-weight: bolder;
+
+}
+h1 {
+	text-decoration: underline;
+    margin: 0;
+    margin-bottom: 7px;
+    padding: 4px;
+    text-align: center;
+    letter-spacing: 0.5em;
+}
+
+#haim{
+    float: right;
+	width: 30%;
+	margin: 5%;
+	transform: rotate(10deg);
+}
+
+table {
+    background-color: #ccc;
+	margin-right:10px;
+	padding:5px;
+	color:black;
+}
+
+form#login{
+	text-align: right;
+	color: black;
+}
+form input.send {
+	border-radius: 10px;
+	background-color: #00a;
+	padding: 1px 20px;
+	color: white;
+	border-width: 5px;
+	border-color: white;
+}
+
+div.hidden{
+	display: none; 
+}

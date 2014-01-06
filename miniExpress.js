@@ -72,7 +72,7 @@ SourceUse.prototype.prepareParams = function (url) {
         throw Error;
     }
     for (var i = 1; i < match.length; i++) {
-        params[this.keys[i - 1].name] = match[i];
+        params[this.keys[i - 1].name] = match[i].toLowerCase();
     }
     return params;
 } ;
@@ -172,7 +172,7 @@ function Cookie(name, value, options) {
     self.parseCookie = function () {
         var ret = '';
         for (var key in privateData) {
-            if (key != noContent) {
+            if (key !== 'noContent') {
                 ret += key + '=' + privateData[key] + '; ';
             } else {
                 for (var flag in privateData[key]) {
@@ -358,7 +358,7 @@ function sendErr(respond, status, explain, headers) {
 miniExpress.static = function (rootFolder) {
     return function (request, respond, next) {
         var headers = {
-            'Server': 'miniExpress/0.3'
+            'Server': 'miniExpress/0.4'
         };
         var sourceFolder = request.usePattern;
         console.log('processing request');

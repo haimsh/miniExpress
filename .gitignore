@@ -1,8 +1,17 @@
-HaimShachor.060172756.ex3 HaimShachor.060172756.ex3.zip
+HaimShachor.060172756.ex3*
+node_modules
+.idea
+out
+views
+routes
+public
+app.js
+FileConnection.js
 ex3.zip
-node_modules/express node_modules/git node_modules/jade
-out/api.js out/assets out/classes out/data.json out/files out/global.html out/index.html out/module-tester..html out/modules out/scripts out/styles out/tester.js.html
-.idea/dictionaries .idea/encodings.xml .idea/jsLibraryMappings.xml .idea/libraries .idea/misc.xml .idea/modules.xml .idea/runConfigurations .idea/scopes .idea/untitled.iml .idea/vcs.xml .idea/workspace.xml
-node_modules/express/History.md node_modules/express/LICENSE node_modules/express/Makefile node_modules/express/Readme.md node_modules/express/bin node_modules/express/index.js node_modules/express/lib node_modules/express/node_modules node_modules/express/package.json node_modules/git/README.md node_modules/git/benchmarks node_modules/git/lib node_modules/git/node_modules node_modules/git/package.json node_modules/jade/LICENSE node_modules/jade/Readme.md node_modules/jade/Readme_zh-cn.md node_modules/jade/bin node_modules/jade/component.json node_modules/jade/index.js node_modules/jade/jade-language.md node_modules/jade/jade.js node_modules/jade/jade.md node_modules/jade/lib node_modules/jade/node_modules node_modules/jade/package.json node_modules/jade/runtime.js
-HaimShachor.060172756.ex3/FileConnection.js HaimShachor.060172756.ex3/callbackLogger.js HaimShachor.060172756.ex3/doc.html HaimShachor.060172756.ex3/http.js HaimShachor.060172756.ex3/load.js HaimShachor.060172756.ex3/miniExpress.js HaimShachor.060172756.ex3/readline.js HaimShachor.060172756.ex3/readme.txt HaimShachor.060172756.ex3/tester.js HaimShachor.060172756.ex3/www
-HaimShachor.060172756.ex3/www/calculator.js HaimShachor.060172756.ex3/www/calculatorAPI.js HaimShachor.060172756.ex3/www/empty.txt HaimShachor.060172756.ex3/www/event-loop.txt HaimShachor.060172756.ex3/www/features.txt HaimShachor.060172756.ex3/www/haim2.jpg HaimShachor.060172756.ex3/www/icon.png HaimShachor.060172756.ex3/www/origstyle.css HaimShachor.060172756.ex3/www/profile.html HaimShachor.060172756.ex3/www/prototype.js HaimShachor.060172756.ex3/www/smallFile.txt HaimShachor.060172756.ex3/www/style.css
+list/static/desktop.ini
+output.txt
+package.json
+readline.js
+tester.zip
+try.js
+tst`

@@ -37,7 +37,7 @@ function loadTest() {
         sock.on('end', function () {
             var lines = content.split('\r\n');
             if (!(lines.length >= 8 && lines[0] === 'HTTP/1.1 200 OK' &&
-                lines[1] === 'Server: miniExpress/0.3' &&
+                lines[1] === 'Server: miniExpress/0.4' &&
                 lines[2] === 'Content-Type: text/plain' &&
                 lines[3] === 'Content-Length: 21' &&
                 lines[lines.length - 3] === 'Connection: keep-alive' &&

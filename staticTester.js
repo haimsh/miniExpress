@@ -48,7 +48,8 @@ function openServer(port, duration) {
     var app = miniExpress();
     console.log('tester: starting the server');
     app.get('/', miniExpress.static(__dirname + '\\www'));
-    var srv = app.listen(port);
+    var srv = http.createServer(app);
+    srv.listen(port);
     closeApp(srv, duration);
 }
 
@@ -289,5 +290,4 @@ function test() {
 console.log('tester: running tests...');
 test();
 
-//module.export = test;
 logger.endCallBack('tester main');

@@ -10,7 +10,7 @@
 var logger = require('./callbackLogger');
 logger.startCallBack('http.js:fileProcess');
 
-var lineReader = require('./readline');
+var lineReader = require('readline');
 var net = require('net');
 var stream = require('stream');
 
@@ -205,7 +205,9 @@ function HttpParser() {
         }
     }
     self._transform = function (chunk, encoding, callback) {
+        logger.startCallBack("miniHTTP: tansform");
         processData(chunk, encoding, callback);
+        logger.endCallBack("miniHTTP: tansform");
     };
     self._flush = function (callback) {
         self.emit('end');
@@ -293,34 +295,6 @@ function createConnection(socket, callBack) {
                     connectionClose = true;
                 }
             }
-//        }
-//        if (readingBody) {   //state c.
-//            var buffer = line + endLine;
-//            if (bodyLeftToRead > buffer.length) {
-//                currentRequest.write(buffer);
-//                bodyLeftToRead -= buffer.length;
-//            } else {
-//                if (bodyLeftToRead > 0) {
-//                    currentRequest.write(buffer.substring(0, bodyLeftToRead));
-//                    remainLine = (bodyLeftToRead < buffer.length);
-//                    line = line.substring(bodyLeftToRead);
-//                    bodyLeftToRead = 0;
-//                } else {
-//                    remainLine = false;
-//                }
-//                readingBody = false;
-//                requestOpen = false;
-//                respond = createHttpRespond(socket, currentRequest.keep(),
-//                    connection);
-//                callBack(currentRequest, respond);
-//                if (remainLine) {
-//                    connection.processLine(line, cr);
-//                }
-//            }
-//            return;
-//        } else {  // now we are in state b.
-//
-//        }
     };
 
     connection.getNewRespondCounter = function () {

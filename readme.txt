@@ -1,23 +1,35 @@
 1. What was hard in this ex?
-The hard thing to implement was supporting pipelined HTTP requests without
-interleaving responses (i.e. 2 200 OK messages, and when each file is piped
-comes its contents). To solve the problem I gave id to each respond, and
-keep trace on current respond in output.
-Another issue: the http headers are easier to parse line by line, while
-the body (which we ignore on this ex.) should be processed differently.
-The main problem was to support lines ended with CRLF and LF.
-I changed the readline module to split only on LF, and handled the CR char
-inside my module. I still had to figure (somehow) that readline differ on
-runs from webstorm and in cmd prompt and I need to set tty manually to false.
-The change in readline.js file is in line 298.
-
+Somehow, although the design separate the HTTP module from the Express module,
+I couldn't make my miniExpress to work with Node HTTP module (uncommenting line
+13 in miniExpress.js). I'm not sure where is the problem, since I kept the node
+original API. The hard part is to debug the node code, which I eventually stopped,
+and left this part uncomplete.
 2. What was fun in this ex?
 That it somehow works.
 
-3. What did I do in order to make your server efficient
-Not much, except the fact that I don't have blocking I/O operations.
-In addition, in case of unnecessary large body in requests, the server will
-start the respond immediately (since body is not necessary), and the large
-body will only delay the next (if exist) request.
-When sending large file, my module don't read the entire file to memory, but
-open it as read-stream and pipe the content directly to socket.
+3. If I were a hacker...
+The first thought was to make the server stack on sync IO commands, something
+like that:
+ function scanEntireFileSystem(req, res) {
+  var fs = require('fs');
+  function scanFolder(fold) {
+   var files = fs.readdirSync(fold);
+   for (var file in files) {
+    var stat = fs.readStatSync(fold + '\\' + file);
+    if (stat.isDirectory()) {
+     scanFolder(fold + '\\' + file);
+    }
+   }
+  }
+  scanFolder('C:\\');
+ }
+This code will scan the entire C disk in sync, so the server will stack.
+Another way is directly make unended code, something like:
+ function doNotReturn(req, res) {
+  while(true){}
+ }
+In order to execute, we need to put in server code the command
+app.use('/hello/hacker/', funcName); // funcName is scanEntireFileSystem or doNotReturn
+and when the server is up and listening, we should open any internet browser, and
+type in the address line the address "http://<the server domain/ip address>[:<port if != 80>]/hello/hacker/"
+This will cause the browser to send http request, which will cause the execution of funcName.

@@ -20,6 +20,8 @@ function testParams() {
         if (req.param('param1') !== PARAM1 || req.param('PARam2') !== PARAM2 ||
             req.param('body') !== BODY_PARAM || req.param('query') !== QUERY_PARAM) {
             console.error("some params didn't pass");
+        } else {
+            console.error("params test passed");
         }
     });
 
@@ -46,7 +48,9 @@ function testCookies() {
     app.put('/cookieTester/', function (req, res) {
         var cookies = req.cookies;
         if (cookies.key1 !== 'val1' || cookies.key2 !== 'val2') {
-            console.error("cookies test failed.");
+            console.error("cookies test failed on server.");
+        } else {
+            console.error("cookies test passed on server.");
         }
         res.cookie('key3', 'val3', {httpOnly: true});
         res.send(200);
@@ -62,12 +66,15 @@ function testCookies() {
         headers: myHeaders
     };
     var req = http.request(rquestOption);
+    req.write('');
     req.on('response', function (res) {
         if (res.statusCode != '200' || res.headers['set-cookie'][0] !== 'key3=val3; HttpOnly') {
             console.error("cookies test failed on client");
+        } else {
+            console.error("cookies test passed on client");
         }
     });
-    setTimeout(req.end.bind(req), 1000);
+    setTimeout(req.end.bind(req), 5000);
 }
 
 function testJSON() {
@@ -82,6 +89,8 @@ function testJSON() {
             JSON.stringify(OBJECT) !== JSON.stringify(req.body)) {
             console.error('json test failed');
             console.log(req.body);
+        } else {
+            console.error('json test passed.');
         }
     });
     var messageBody = JSON.stringify(OBJECT);
@@ -102,7 +111,7 @@ function test() {
     testParams();
     testCookies();
     testJSON();
-    setTimeout(process.exit, 10000);
+    setTimeout(process.exit, 30000);
 }
 
 test();

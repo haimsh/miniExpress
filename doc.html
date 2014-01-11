@@ -1,40 +1,29 @@
 <html>
 <head>
-    <title> Ex. 3 - Haim Shachor</title>
+    <title> Ex. 4 - Haim Shachor</title>
 </head>
 <body>
 <h1>The testers I used:</h1>
 <ul>
     <li>
-        Site: This tester test the basic server feature - serving the www folder by HTTP protocol.
-        The tester read the www folder, and for each file, create http request for
-        the file, and compare the response to the file content.
+        List application: didn't tested automatically, but tested manually on chrome
+        (including the network messages). Since this test cover most of the code, I
+        focus in the tester file in some cases not covered by list app.
     </li>
     <li>
-        MultiServer: Test server with different url path.
-        The tester use the same miniExpress app for several rootFolders (all
-        reference to www folder), and try to request small file via http module.
+        Cookies: Test parsing cookies sent by client, and sending 'Set-Cookie' header
+        back to client.
     </li>
     <li>
-        TestBody: This tester test handle of requests with body.
-        It open net connection to server, and simulate HTTP request with body, and
-        second adjoin HTTP request. The server should reply succesfully to both
-        requests.
+        Params: Test param parsing by url path / url query or body parser.
     </li>
     <li>
-        TestKeepAlive: This tester test handle of requests with body.
-        It open net connection to server, and simulate HTTP request with body, and
-        second adjoin HTTP request. The server should reply successfully to both
-        requests.
-        The tester is called by different various of http-persistent options.
+        JSON: test parsing json request by the server (sending json object is used by
+        the list app, but when client send, it use ajax which send in urlencoded type,
+        so reading json is not covered.
     </li>
     <li>
-        LoadTest: This test the server work under DOS attack.
-        It create lot of net connections, and check how many of them are responded,
-        and check the respond. Limit differ between systems and runs, but on my PC,
-        on simultaneity 2048 requests, the server may respond 1500-2000 of them, and
-        will stay open for later connections. The tester also check that few seconds
-        after the attack the server is available.
+        Ex3 test: the static server is still tested, and it seems to work.
     </li>
 </ul>
 <p>

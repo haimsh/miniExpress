@@ -48,8 +48,8 @@ function openServer(port, duration) {
     var app = miniExpress();
     console.log('tester: starting the server');
     app.get('/', miniExpress.static(__dirname + '\\www'));
-    var srv = http.createServer(app);
-    srv.listen(port);
+    var srv = app.listen(port);
+//    srv.listen(port);
     closeApp(srv, duration);
 }
 
@@ -150,7 +150,7 @@ function multiServer() {
             logger.startCallBack('staticTester.js: multiServer respond for site ' +
                 site);
             if (res.statusCode === 200) {
-                console.log('Site ' + site + ' was tested and found OK');
+                console.error('Site ' + site + ' was tested and found OK');
             } else {
                 console.error('multiServer: Site ' + site +
                     ' returned error respond: ' + res.statusCode);
@@ -206,6 +206,8 @@ function testBody() {
         console.log(ok!== 2);
         if (ok !== 2) {
             console.error("TestBody: server didn't send two OK messages.");
+        } else {
+            console.error('testBody passed');
         }
         logger.endCallBack('staticTester.js: body - respond end');
     });
@@ -245,6 +247,9 @@ function testKeepAlive(httpVer, connection, wantedResult) {
             if (line.substring(12) !== wantedResult) {
                 console.error('testKeep: Returned connection header was ' +
                     'wrong!');
+            } else {
+                console.error('testKeep: Returned connection header was ' +
+                    'right!');
             }
         }
         logger.endCallBack('staticTester.js: keep - line in respond');
@@ -256,7 +261,6 @@ function testKeepAlive(httpVer, connection, wantedResult) {
         }
         logger.endCallBack('staticTester.js: keep - respond end');
     });
-    //TODO: test the socket is really close/open.
 
 }
 

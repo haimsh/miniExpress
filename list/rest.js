@@ -1,5 +1,4 @@
 console.log('Hello');
-//require('../callbackLogger').activate();
 var items = require('./items.js');
 var express = require('../miniExpress');
 var app = express();
@@ -26,4 +25,4 @@ app.delete('/items/:itemId', function(req, res){
 });
 
 app.listen(port);
-console.log(app.routes);
+//console.log(app.routes);

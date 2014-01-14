@@ -367,7 +367,7 @@ miniExpress.static = function (rootFolder) {
         }
         var wantedSource = url.parse(request.url).path;
         var fileName = path.normalize(wantedSource.replace(new RegExp('^' + sourceFolder), rootFolder + '/'));
-        if (!fileName.substring(rootFolder.length) === rootFolder) {
+        if (fileName.substring(0, rootFolder.length) !== rootFolder) {
             sendErr(respond, 404, "You don't have permission for the file: " + wantedSource + "\r\n", headers);
             console.log('client requested for ' + fileName + ' when root is ' + rootFolder);
 //            next();

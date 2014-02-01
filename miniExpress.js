@@ -85,7 +85,11 @@ SourceUse.prototype.invoke = function (request, respond, next) {
     }
     request.usePattern = this.path;
     request.params = this.prepareParams(request.url.substring(0, slice));
-    this.callbacks[0](request, respond, next);
+    try {
+        this.callbacks[0](request, respond, next);
+    } catch (e) {
+        console.error(e);
+    }
 };
 
 function expressReq(request) {
@@ -411,11 +415,13 @@ miniExpress.cookieParser = function () {
     return function (req, res, next) {
         var cookies = {};
         var cookie = req.get('Cookie');
-        var values = cookie.split('; ');
-        for (var elem in values) {
-            var keyVal = values[elem].split('=');
-            if (keyVal.length === 2) {
-                cookies[keyVal[0]] = keyVal[1];
+        if (typeof cookie === 'string') {
+            var values = cookie.split('; ');
+            for (var elem in values) {
+                var keyVal = values[elem].split('=');
+                if (keyVal.length === 2) {
+                    cookies[keyVal[0]] = keyVal[1];
+                }
             }
         }
         req.cookies = cookies;

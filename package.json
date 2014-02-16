@@ -2,7 +2,7 @@
   "name": "mini.express.haim.shachor",
   "description": "my subset of Express server",
   "author": "Haim Shachor<haim.shachor@mail.huij.ac.il>",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "dependencies": {},
   "repository": {
     "type": "git",

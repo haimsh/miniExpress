@@ -80,7 +80,7 @@ SourceUse.prototype.prepareParams = function (url) {
 SourceUse.prototype.invoke = function (request, respond, next) {
     var slice = this.match(request.url);
     if (slice < 0) {
-        // TODO: we got a problem ...
+        console.error('slice is:' + slice)
         respond.send(500);
     }
     request.usePattern = this.path;
@@ -430,9 +430,12 @@ miniExpress.cookieParser = function () {
 };
 
 miniExpress.json = function () {
+    const CONTENT_TYPE = 'application/json';
     return function (req, res, next) {
-        if (req.get('Content-Type') !== 'application/json') {
+        var type = req.get('Content-Type');
+        if (!type || type.lastIndexOf(CONTENT_TYPE) < 0) {
             next();
+            return;
         }
         function parse() {
             try {
@@ -456,6 +459,7 @@ miniExpress.urlencoded = function () {
         var type = req.get('Content-Type');
         if (!type || type.lastIndexOf(CONTENT_TYPE) < 0) {
             next();
+            return;
         }
         function parse() {
             req.body = queryString.parse(req.content);

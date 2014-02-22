@@ -20,6 +20,7 @@ var util = require('util');
 
 const httpStatus = {
     '200': ' OK',
+    '400': ' Bad Request',
     '404': ' Not Found',
     '405': ' Method Not Allowed',
     '500': ' Internal Server Error'
@@ -243,7 +244,8 @@ function createConnection(socket, callBack) {
     }
 
     function addHeader(request, headerLine) {
-        var tokens = headerLine.split(':', 2);
+        var splitPoint = headerLine.indexOf(':');
+        var tokens = [headerLine.substring(0, splitPoint), headerLine.substring(splitPoint + 1)];
         if (tokens.length < 2) {
             console.log('bad header, close the connection');
             httpError(request, 'Invalid header line');
